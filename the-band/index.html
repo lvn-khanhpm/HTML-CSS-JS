@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The band</title>
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
                 <li><a href="#">Tour</a></li>
                 <li><a href="#">Contact</a></li>
                 <li>
-                    <a href="#">More</a>
+                    <a href="#">More <i class="ti-angle-down nav-arrow-down"></i></a>
                     <ul class="sub-nav">
                         <li><a href="#">Merchandise</a></li>
                         <li><a href="#">Extras</a></li>
@@ -26,9 +27,15 @@
                     </ul>
                 </li>
             </ul>
+            <a href="#" id="search"><i class="ti-search search-arrow-down"></i></a>
         </div>
         <div id="slider">
-
+            <div class="title">
+                <h4>Chicago</h4>
+                <p class="about">
+                    Thank you, Chicago - A night we won't forget.
+                </p>
+            </div>
         </div>
         <div id="content">
             <div id="about">
@@ -48,6 +55,33 @@
 
         </div>
     </div>
+
+    <script>
+        let $ = document.querySelector.bind(document);
+        let $$ = document.querySelectorAll.bind(document);
+
+        let slideElement = $('#slider');
+        let slideTitleElement = $('#slider .title h4');
+        let slideParaElement = $('#slider .title .about');
+
+        setInterval(() => {
+            slideElement.style.backgroundImage = 'url("./assets/images/slider/la.jpg")';
+            slideTitleElement.innerText = 'Los Angeles';
+            slideParaElement.innerText = 'We had the best time playing at Venice Beach!';
+        }, 5000);
+
+        setInterval(() => {
+            slideElement.style.backgroundImage = 'url("./assets/images/slider/ny.jpg")';
+            slideTitleElement.innerText = 'New York';
+            slideParaElement.innerText = 'The atmosphere in New York is lorem ipsum.';
+        }, 10000);
+
+        setInterval(() => {
+            slideElement.style.backgroundImage = 'url("./assets/images/slider/chicago.jpg")';
+            slideTitleElement.innerText = 'Chicago';
+            slideParaElement.innerText = 'Thank you, Chicago - A night we won\'t forget.';
+        }, 15000);
+    </script>
 </body>
 
 </html>
