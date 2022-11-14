@@ -113,6 +113,16 @@ html {
     margin: 15px 0;
 }
 
-#content {
-    height: 200px;
+#content #about {
+    max-width: 800px;
+    padding: 64px 16px;
+    margin: auto;
+    text-align: center;
+}
+
+#content #about h2{
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin: 10px 0;
 }
