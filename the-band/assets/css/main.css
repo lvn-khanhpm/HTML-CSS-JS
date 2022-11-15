@@ -8,6 +8,12 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 #header {
     width: 100%;
     height: 46px;
@@ -23,7 +29,7 @@ html {
     position: relative;
 }
 
-#nav > li > a {
+#nav>li>a {
     color: #fff;
     text-transform: uppercase;
 }
@@ -53,7 +59,7 @@ html {
     display: inline-block;
 }
 
-#nav > li:hover > a,
+#nav>li:hover>a,
 #nav .sub-nav li:hover {
     color: #000;
     background-color: #ccc;
@@ -113,16 +119,54 @@ html {
     margin: 15px 0;
 }
 
-#content #about {
+#content .about-container {
+    background-color: #fff;
+}
+
+#content #about,
+#content #tour {
     max-width: 800px;
     padding: 64px 16px;
     margin: auto;
     text-align: center;
 }
 
-#content #about h2{
+#content #about h2 {
     text-transform: uppercase;
     font-weight: 400;
     letter-spacing: 4px;
     margin: 10px 0;
+}
+
+#content #about .slogan {
+    font-style: italic;
+    color: gray;
+}
+
+#content #about .description {
+    margin: 15px 0;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+#content #about .info-container {
+    padding: 32px 0;
+}
+
+#content #about .info-member {
+    width: calc(100% / 3);
+    float: left;
+}
+
+#content .info-member p {
+    margin: 15px 0;
+}
+
+#content .info-member img {
+    width: 60%;
+    margin-bottom: 16px;
+}
+
+#content .tour-container {
+    background-color: #000;
 }
