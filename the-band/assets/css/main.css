@@ -170,3 +170,73 @@ html {
 #content .tour-container {
     background-color: #000;
 }
+
+.tour-container #tour h2 {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.tour-container #tour i {
+    font-size: 15px;
+    color: gray;
+    line-height: 1.5;
+}
+
+.tour-container #tour .info-tour {
+    background-color: #fff;
+    margin-top: 35px;
+}
+
+.tour-container #tour .detail {
+    padding: 8px 16px;
+    text-align: left;
+    color: grey;
+    line-height: 1.5;
+    border-bottom: 1px solid #ddd;
+}
+
+.tour-container #tour .detail:last-child {
+    border-bottom: none;
+}
+
+.info-tour .detail span {
+    display: inline-block;
+    background-color: #f44336;
+    color: #fff;
+    margin-left: 16px;
+    padding: 0 8px;
+}
+
+.info-tour .detail .date-tour {
+    display: inline-block;
+    background-color: #000;
+    border-radius: 50%;
+    float: right;
+    margin-right: 16px;
+}
+
+.tour-container #tour .buy-ticket {
+    padding: 32px 16px;
+    margin: 0 -24px;
+}
+
+#tour .buy-ticket .ticket {
+    width: calc(100% / 3);
+    float: left;
+    padding: 0 8px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.buy-ticket .ticket img {
+    margin-bottom: -4px;
+    width: 100%;
+}
+
+.buy-ticket .ticket p {
+    background-color: #fff;
+}
