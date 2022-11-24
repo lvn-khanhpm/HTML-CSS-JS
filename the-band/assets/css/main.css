@@ -4,8 +4,10 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 .clearfix::after {
@@ -124,7 +126,8 @@ html {
 }
 
 #content #about,
-#content #tour {
+#content #tour,
+#content .contact {
     max-width: 800px;
     padding: 64px 16px;
     margin: auto;
@@ -237,6 +240,10 @@ html {
     width: 100%;
 }
 
+.buy-ticket .ticket img:hover {
+    opacity: 0.6;
+}
+
 .buy-ticket .ticket p {
     background-color: #fff;
     padding-bottom: 15px;
@@ -273,4 +280,77 @@ html {
 
 #content #contact-container {
     background-color: #fff;
+}
+
+#contact-container .contact h2 {
+    margin: 10px 0;
+    font-size: 30px;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+#contact-container .contact p {
+    margin: 15px 0;
+    font-style: italic;
+    color: grey;
+}
+
+#contact-container .contact .form-info {
+    padding: 32px 0;
+}
+
+.contact .form-info .label {
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.form-info .label .icon-label {
+    width: 30px;
+    display: inline-block;
+    line-height: 18px;
+}
+
+.contact .form-info .form {
+    float: left;
+    width: 50%;
+}
+
+.form-info .form input {
+    padding: 8px;
+    margin: 0 8px;
+    display: block;
+    border: 1px solid #ccc;
+    width: calc(100% - 16px);
+    font-size: 18px;
+}
+
+.form-info .form div {
+    margin-bottom: 50px;
+}
+
+.form-info .form div input {
+    float: left;
+    width: calc(50% - 16px);
+    
+}
+
+.form-info .form input[type="submit"] {
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #000;
+    margin: 16px 0;
+    float: right;
+    text-transform: uppercase;
+    width: min-content;
+    margin-right: 8px;
+}
+
+.form-info .form input[type="submit"]:hover {
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
 }
