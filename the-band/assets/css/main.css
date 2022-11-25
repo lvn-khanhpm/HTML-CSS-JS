@@ -354,3 +354,32 @@ html, body {
     background-color: #ccc;
     cursor: pointer;
 }
+
+#banner {
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-image: url("./../images/banner/map.jpg");
+    padding-top: 50%;
+    filter: grayscale(50%);
+}
+
+#footer .share {
+    padding: 64px 8px;
+    text-align: center;
+}
+
+#footer .share i {
+    opacity: 0.6;
+    font-size: inherit;
+    font-size: 22px;
+}
+
+#footer .share i:hover {
+    opacity: 0.4;
+}
+
+#footer .share p {
+    margin: 15px 0;
+    opacity: 0.6;
+}
