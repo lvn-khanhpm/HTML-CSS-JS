@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     line-height: 1.5;
@@ -17,13 +18,13 @@ html, body {
 }
 
 #header {
-    width: 100%;
     height: 46px;
     background-color: black;
     position: fixed;
     z-index: 1000;
     top: 0;
     left: 0;
+    right: 0;
 }
 
 #nav li {
@@ -34,6 +35,7 @@ html, body {
 #nav>li>a {
     color: #fff;
     text-transform: uppercase;
+    text-align: center;
 }
 
 #nav li a,
@@ -47,6 +49,10 @@ html, body {
 #header #search {
     color: #fff;
     float: right;
+}
+
+#header #menu {
+    display: none;
 }
 
 #header .search-arrow-down {
@@ -65,6 +71,10 @@ html, body {
 #nav .sub-nav li:hover {
     color: #000;
     background-color: #ccc;
+}
+
+#nav li#merch {
+    display: none;
 }
 
 #nav li:hover .sub-nav {
@@ -128,8 +138,9 @@ html, body {
 #content #about,
 #content #tour,
 #content .contact {
-    max-width: 800px;
-    padding: 64px 16px;
+    width: 800px;
+    max-width: 100%;
+    padding: 64px 24px;
     margin: auto;
     text-align: center;
 }
@@ -270,6 +281,7 @@ html, body {
     background-color: #000;
     color: #fff;
     border-radius: 3px;
+    border: none;
 }
 
 .buy-ticket .ticket button:hover {
@@ -335,7 +347,7 @@ html, body {
 .form-info .form div input {
     float: left;
     width: calc(50% - 16px);
-    
+
 }
 
 .form-info .form input[type="submit"] {
@@ -382,4 +394,82 @@ html, body {
 #footer .share p {
     margin: 15px 0;
     opacity: 0.6;
+}
+
+/* RESPOSIVE */
+/* PC >= 1024px */
+@media (min-width: 1024px) {}
+
+/* TABLET >=740 , < 1024px */
+@media (min-width: 740px) and (max-width: 1023px) {}
+
+/* MOBIE < 740px */
+@media (max-width: 739px) {
+    #header #search {
+        display: none;
+    }
+
+    #nav li:not(#nav li:first-child, #nav li:last-child) {
+        display: block;
+    }
+
+    #nav li:last-child {
+        display: none;
+    }
+
+    #header #nav {
+        background-color: #000;
+        width: 100%;
+    }
+
+    #nav>li>a {
+        text-align: left;
+    }
+
+    #header #menu {
+        position: absolute;
+        z-index: 2000;
+        top: 0;
+        right: 0;
+        display: block;
+        line-height: 46px;
+        padding: 0 24px;
+        color: #fff;
+    }
+
+    #header #menu:hover {
+        color: #000;
+        background-color: #ccc;
+        cursor: pointer;
+    }
+
+    .nav-hidden {
+        overflow: hidden;
+    }
+
+    .contact .form-info .label,
+    .contact .form-info .form,
+    .form-info .form div input,
+    #content #about .info-member,
+    #tour .buy-ticket .ticket {
+        float: none;
+        width: 100%;
+    }
+
+    .form-info .form input {
+        width: 100%;
+        margin: 0;
+    }
+
+    .form-info .form div {
+        margin-bottom: 8px;
+    }
+
+    .form-info .form div input+input {
+        margin-top: 8px;
+    }
+
+    .form-info .form input[type="submit"] {
+        margin-right: 0;
+    }
 }
