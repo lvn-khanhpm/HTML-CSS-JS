@@ -318,17 +318,23 @@ const app2 = {
 };
 
 const app = {
+    currentIndex: 0,
+    isPlaying: false,
+    isRandom: false,
+    isRepeat: false,
+    randomList: [],
+
     songs: [
         {
             name: "Click Pow Get Down",
             singer: "Raftaar x Fortnite",
-            path: "https://mp3.vlcmusic.com/download.php?track_id=34737&format=320",
+            path: "/musics/Damn-Song-Raftaar-Ft-KrSNa.mp3",
             image: "https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg"
         },
         {
             name: "Tu Phir Se Aana",
             singer: "Raftaar x Salim Merchant x Karma",
-            path: "https://mp3.vlcmusic.com/download.php?track_id=34213&format=320",
+            path: "/musics/Damn-Song-Raftaar-Ft-KrSNa.mp3",
             image:
                 "https://1.bp.blogspot.com/-kX21dGUuTdM/X85ij1SBeEI/AAAAAAAAKK4/feboCtDKkls19cZw3glZWRdJ6J8alCm-gCNcBGAsYHQ/s16000/Tu%2BAana%2BPhir%2BSe%2BRap%2BSong%2BLyrics%2BBy%2BRaftaar.jpg"
         },
@@ -336,20 +342,20 @@ const app = {
             name: "Naachne Ka Shaunq",
             singer: "Raftaar x Brobha V",
             path:
-                "https://mp3.filmysongs.in/download.php?id=Naachne Ka Shaunq Raftaar Ft Brodha V Mp3 Hindi Song Filmysongs.co.mp3",
+                "/musics/Damn-Song-Raftaar-Ft-KrSNa.mp3",
             image: "https://i.ytimg.com/vi/QvswgfLDuPg/maxresdefault.jpg"
         },
         {
             name: "Mantoiyat",
             singer: "Raftaar x Nawazuddin Siddiqui",
-            path: "https://mp3.vlcmusic.com/download.php?track_id=14448&format=320",
+            path: "/musics/Damn-Song-Raftaar-Ft-KrSNa.mp3",
             image:
                 "https://a10.gaanacdn.com/images/song/39/24225939/crop_480x480_1536749130.jpg"
         },
         {
             name: "Aage Chal",
             singer: "Raftaar",
-            path: "https://mp3.vlcmusic.com/download.php?track_id=25791&format=320",
+            path: "/musics/Damn-Song-Raftaar-Ft-KrSNa.mp3",
             image:
                 "https://a10.gaanacdn.com/images/albums/72/3019572/crop_480x480_3019572.jpg"
         },
@@ -357,20 +363,20 @@ const app = {
             name: "Damn",
             singer: "Raftaar x kr$na",
             path:
-                "https://mp3.filmisongs.com/go.php?id=Damn%20Song%20Raftaar%20Ft%20KrSNa.mp3",
+                "/musics/Damn-Song-Raftaar-Ft-KrSNa.mp3",
             image:
                 "https://filmisongs.xyz/wp-content/uploads/2020/07/Damn-Song-Raftaar-KrNa.jpg"
         },
         {
             name: "Feeling You",
             singer: "Raftaar x Harjas",
-            path: "https://mp3.vlcmusic.com/download.php?track_id=27145&format=320",
+            path: "/musics/Damn-Song-Raftaar-Ft-KrSNa.mp3",
             image:
                 "https://a10.gaanacdn.com/gn_img/albums/YoEWlabzXB/oEWlj5gYKz/size_xxl_1586752323.webp"
         }
     ],
     render: function () {
-        let htmls = this.songs.map(({image, name, singer}, index) => {
+        let htmls = this.songs.map(({ image, name, singer }, index) => {
             return `
             <div class="song" data-index="${index}">
                 <div class="thumb"
@@ -388,18 +394,168 @@ const app = {
         });
 
         playlist.innerHTML = htmls.join('');
+
+        this.addSelectPlayListEvent();
     },
     handleEvents: function () {
-        document.onscroll = () => {
-            let cd = $('.cd');
+        console.log({ audio });
+        let cd = $('.cd');
+        let cdWidth = cd.offsetWidth;
+        let _this = this;
 
-            
+        document.onscroll = () => {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+            let newCdWidth = cdWidth - scrollTop;
+            newCdWidth = newCdWidth > 0 ? newCdWidth : 0;
+
+            cd.style.width = newCdWidth + 'px';
+            cd.style.opacity = newCdWidth / cdWidth;
+        }
+
+        // Xu li CD xoay / dung
+        let cdThumbAnimate = cdThumb.animate([{ transform: 'rotate(360deg)' }], {
+            duration: 10000, // 10 seconds
+            iterations: Infinity
+        });
+
+        cdThumbAnimate.pause();
+
+        // Xu li su kien click button play.
+        playBtn.onclick = () => {
+            if (_this.isPlaying)
+                audio.pause();
+            else
+                audio.play();
+        }
+
+        // Xu li su kien click button repeat
+        repeatBtn.onclick = () => {
+            // audio.currentTime = 0;
+            // progress.value = 0;
+            // audio.play();
+
+            if (repeatBtn.classList.contains('active')) {
+                repeatBtn.classList.remove('active');
+                _this.isRepeat = false;
+            } else {
+                repeatBtn.classList.add('active');
+                _this.isRepeat = true;
+                randomBtn.classList.remove('active');
+                _this.isRandom = false;
+            }
+        }
+
+        // Xu li logic khi audio o trang thai play
+        audio.onplay = () => {
+            playBtn.classList.add('player', 'playing');
+            _this.isPlaying = true;
+            cdThumbAnimate.play();
+        }
+
+        // Xu li logic khi audio o trang thai pause
+        audio.onpause = () => {
+            playBtn.classList.remove('player', 'playing');
+            _this.isPlaying = false;
+            cdThumbAnimate.pause();
+        }
+
+        // Xu li hien thi tien do chay cua bai hat.
+        audio.ontimeupdate = () => {
+            let songPlayPercent = audio.currentTime / audio.duration;
+
+            progress.value = songPlayPercent * 100;
+        }
+
+        // Xu li su kien click tua nhanh bai hat.
+        progress.onchange = (e) => {
+            let seekTime = e.target.value / 100 * audio.duration;
+            audio.currentTime = seekTime;
+        }
+
+        // Xu li chon bai hat prev
+        prevBtn.onclick = () => {
+            _this.currentIndex = --_this.currentIndex > 0 ? _this.currentIndex : 0;
+            _this.render();
+            _this.loadCurrentSong();
+            audio.play();
+        }
+
+        // Xu li chon bai hat next
+        nextBtn.onclick = () => {
+            _this.moveToNextSong();
+            audio.play();
+        }
+
+        // Xu li khi bai hat ket thuc
+        audio.onended = () => {
+            if (_this.isRandom) {
+                _this.currentIndex = Math.floor(Math.random() * _this.songs.length);
+                _this.render();
+                _this.loadCurrentSong();
+                _this.randomList.push(_this.currentIndex);
+            } else if (!_this.isRepeat) {
+                _this.moveToNextSong();
+            }
+            audio.play();
+        }
+
+        // Xu li khi chon button random
+        randomBtn.onclick = () => {
+            if (randomBtn.classList.contains('active')) {
+                randomBtn.classList.remove('active');
+                _this.isRandom = false;
+            } else {
+                randomBtn.classList.add('active');
+                _this.isRandom = true;
+                repeatBtn.classList.remove('active');
+                _this.isRepeat = false;
+            }
         }
     },
+    defineProperties: function () {
+        Object.defineProperty(app, 'currentSong', {
+            get: function () {
+                return this.songs[this.currentIndex];
+            }
+        });
+    },
+    loadCurrentSong: function () {
+        let { name, path, image } = this.currentSong;
+
+        heading.textContent = name;
+        cdThumb.style.backgroundImage = `url('${image}')`;
+        audio.src = path;
+    },
+    addSelectPlayListEvent: function () {
+        // Xu li chon bai hat tai danh sach bai hat.
+        let _this = this;
+        let songList = $$('.song');
+
+        songList.forEach(song => {
+            song.onclick = () => {
+                _this.currentIndex = song.getAttribute('data-index');
+                _this.loadCurrentSong();
+                audio.play();
+            }
+        });
+    },
+    moveToNextSong: function () {
+        this.currentIndex = ++this.currentIndex < this.songs.length ? this.currentIndex : 0;
+        this.render();
+        this.loadCurrentSong();
+    },
     start: function () {
+        // Dinh nghia cac thuoc tinh su dung trong app.
+        this.defineProperties();
+
+        // Render danh sach bai hat.
+        this.render();
+
+        // Xu li cac su kien trong app.
         this.handleEvents();
 
-        this.render();
+        // Tai bai hat hien tai.
+        this.loadCurrentSong();
     }
 }
 
