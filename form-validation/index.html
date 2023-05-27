@@ -51,8 +51,11 @@
     <script>
         Validator({
             formID: '#form-1',
+            errorMessageSelector: '.form-message',
             rules: [
                 Validator.isRequired('#fullname'),
+                Validator.isMinLength('#password', 6),
+                Validator.isConfirmed('#password', '#password_confirmation', 'Mật khẩu nhập lại không chính xác!'),
                 Validator.isEmail('#email')
             ]
         });
