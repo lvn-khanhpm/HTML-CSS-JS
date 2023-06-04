@@ -1,30 +1,75 @@
 // Doi tuong validator
-function Validator({ formID, errorMessageSelector, rules }) {
+function Validator({ formID, errorMessageSelector, rules, onSubmit }) {
     let formElement = document.querySelector(formID);
     var formGroupElement;
     var formMessageElement;
 
+    // Xu li khi submit
+    formElement.onsubmit = (e) => {
+        let preventedSubmit = false;
+        let inputForms = formElement.querySelectorAll('input');
+
+        for (const selectorKey in testsBySelectorList) {
+            let inputElement = formElement.querySelector(selectorKey);
+
+            if (!validate(inputElement, testsBySelectorList[selectorKey]) && !preventedSubmit) {
+                e.preventDefault();
+                preventedSubmit = true;
+            }
+        }
+        // Data input form
+        inputForms = Array.from(inputForms).reduce((data, input) => {
+            return {...data, [input.name]: input.value};
+        }, {});
+
+        onSubmit(inputForms);
+
+        formElement.action = 'https://www.w3schools.com/';
+    }
+
+    // Xu li tao ra list rule
+    let testsBySelectorList = {};
+
+    rules.forEach(rule => {
+        if (testsBySelectorList[rule.selector] == undefined)
+            testsBySelectorList[rule.selector] = [rule.test];
+        else
+            testsBySelectorList[rule.selector] = [...testsBySelectorList[rule.selector], rule.test];
+    });
+
     // Ham thuc hien validate
-    let validate = (inputElement, rule) => {
+    var validate = (inputElement, tests) => {
+        let result = true;
+
         formGroupElement = inputElement.parentElement;
         formMessageElement = formGroupElement.querySelector(errorMessageSelector);
-        let errorMessage = rule.test(inputElement.value, formElement);
+        let errorMessage;
+
+        let testNum = tests.length;
+        for (let index = 0; index < testNum; index++) {
+            if (!!errorMessage) break;
+            errorMessage = tests[index](inputElement.value, formElement);
+        }
 
         if (!!errorMessage) {
             formMessageElement.innerHTML = errorMessage;
             formGroupElement.classList.add('invalid');
+            result = false;
         } else {
             formMessageElement.innerHTML = '';
             formGroupElement.classList.remove('invalid');
+            result = true;
         }
+
+        return result;
     }
 
-    rules.forEach(rule => {
-        let inputElement = formElement.querySelector(rule.selector);
+    for (const selectorKey in testsBySelectorList) {
+        let inputElement = formElement.querySelector(selectorKey);
 
         // Xu li khi nguoi dung blur input
         inputElement.onblur = () => {
-            validate(inputElement, rule);
+            validate(inputElement, testsBySelectorList[selectorKey]);
         }
 
         // Xu li khi nguoi dung nhap input
@@ -35,7 +80,7 @@ function Validator({ formID, errorMessageSelector, rules }) {
             formMessageElement.innerHTML = '';
             formGroupElement.classList.remove('invalid');
         }
-    });
+    }
 }
 
 // Rule check required
