@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="main.css">
-    <script src="toast-handle.js"></script>
     <title>Toast Message</title>
+    <!-- <style>
+        body{height:100vh;display:flex;flex-direction:column;font-family:"Helvetica Neue";background-color:#f4f4f5}*{padding:0;margin:0;box-sizing:border-box}#toast{position:fixed;top:32px;right:32px;z-index:999999}body>div{margin:auto}.btn--success{background-color:#71be34}.btn+.btn{margin-left:16px}.btn--danger{background-color:#ff623d}.btn{display:inline-block;text-decoration:none;background-color:transparent;border:none;outline:0;color:#fff;padding:12px 48px;border-radius:50px;cursor:pointer;min-width:120px;transition:opacity .2s ease}
+    </style> -->
+    <link rel="preload" as="style" href="main.min.css">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="main.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script async src="toast-handle.min.js"></script>
 </head>
 
 <body>
@@ -19,26 +22,5 @@
         <div onclick="showSuccessToast();" class="btn btn--success">Show success toast</div>
         <div onclick="showErrorToast();" class="btn btn--danger">Show error toast</div>
     </div>
-
-    <script>
-        function showSuccessToast() {
-            toast({
-                title: "Thành công!",
-                message: "Bạn đã đăng ký thành công tài khoản tại F8.",
-                type: "success",
-                duration: 2000
-            });
-        }
-
-        function showErrorToast() {
-            toast({
-                title: "Thất bại!",
-                message: "Có lỗi xảy ra, vui lòng liên hệ quản trị viên.",
-                type: "error",
-                duration: 2000
-            });
-        }
-    </script>
 </body>
-
 </html>
