@@ -1,4 +1,9 @@
 .main-content {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.item img {
+    border-radius: 5px;
 }
