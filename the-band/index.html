@@ -1,183 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The band</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
-</head>
+    <link rel="preload" href="./assets/images/slider/chicago.jpg" as="image"/>
+    <link rel="preload" href="./assets/images/slider/la.jpg" as="image"/>
+    <link rel="preload" href="./assets/images/slider/ny.jpg" as="image"/>
+    <link rel="preload" href="./assets/fonts/themify-icons/fonts/themify.woff?-fvbane" as="font"/>
+    <link rel="preload" href="./assets/css/main.min.css" as="style" />
+    <link rel="preload" href="./assets/fonts/themify-icons/themify-icons.min.css" as="style">
+    <!-- <link rel="preload" href="./assets/css/main.css" as="style">
+    <link rel="preload" href="./assets/fonts/themify-icons/themify-icons.css" as="style"> -->
+    <!-- <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css"> -->
+    <link rel="stylesheet" href="./assets/css/main.min.css" />
+    <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.min.css">
+    <!-- <style>
+      [class*=" ti-"],[class^=ti-]{font-family:themify;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    </style>
+    <link
+      rel="preload"
+      href="./assets/fonts/themify-icons/themify-icons.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="./assets/fonts/themify-icons/themify-icons.min.css"
+    /></noscript> -->
+  </head>
 
-<body>
+  <body>
     <div id="header" class="nav-hidden">
-        <ul id="nav">
-            <li><a href="#">Home</a></li>
-            <li onclick="showNav()"><a href="#band">Band</a></li>
-            <li onclick="showNav()"><a href="#tour">Tour</a></li>
-            <li onclick="showNav()"><a href="#contact">Contact</a></li>
-            <li onclick="showNav()" id="merch"><a href="#">Merch</a></li>
-            <li>
-                <a href="#">More <i class="ti-angle-down nav-arrow-down"></i></a>
-                <ul class="sub-nav">
-                    <li><a href="#">Merchandise</a></li>
-                    <li><a href="#">Extras</a></li>
-                    <li><a href="#">Media</a></li>
-                </ul>
-            </li>
-        </ul>
-        <a href="#" id="search"><i class="ti-search search-arrow-down"></i></a>
-        <div onclick="showNav()" id="menu"><i class="ti-menu"></i></div>
+      <ul id="nav">
+        <li><a href="#">Home</a></li>
+        <li onclick="showNav()"><a href="#band">Band</a></li>
+        <li onclick="showNav()"><a href="#tour">Tour</a></li>
+        <li onclick="showNav()"><a href="#contact">Contact</a></li>
+        <li onclick="showNav()" id="merch"><a href="#">Merch</a></li>
+        <li>
+          <a href="#">More <i class="ti-angle-down nav-arrow-down"></i></a>
+          <ul class="sub-nav">
+            <li><a href="#">Merchandise</a></li>
+            <li><a href="#">Extras</a></li>
+            <li><a href="#">Media</a></li>
+          </ul>
+        </li>
+      </ul>
+      <a href="#" id="search"><i class="ti-search search-arrow-down"></i></a>
+      <div onclick="showNav()" id="menu"><i class="ti-menu"></i></div>
     </div>
-    <div style="clear: both;" id="slider" class="content-section">
-        <div class="title">
-            <h4>Chicago</h4>
-            <p class="about">
-                Thank you, Chicago - A night we won't forget.
-            </p>
-        </div>
+    <div style="clear: both" id="slider" class="content-section">
+      <div class="title">
+        <h4>Chicago</h4>
+        <p class="about">Thank you, Chicago - A night we won't forget.</p>
+      </div>
     </div>
-    <div style="clear: both;" id="content" class="content-section">
-        <div id="band" class="about-container">
-            <div id="about">
-                <h2>The Band</h2>
-                <p class="slogan">We love music</p>
-                <p class="description">We have created a fictional band website.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                    id
-                    est laborum consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <div class="info-container clearfix">
-                    <div class="info-member">
-                        <p>Name</p>
-                        <img src="./assets/images/about/bandmember.jpg" alt="">
-                    </div>
-                    <div class="info-member">
-                        <p>Name</p>
-                        <img src="./assets/images/about/bandmember.jpg" alt="">
-                    </div>
-                    <div class="info-member">
-                        <p>Name</p>
-                        <img src="./assets/images/about/bandmember.jpg" alt="">
-                    </div>
-                </div>
+    <div style="clear: both" id="content" class="content-section">
+      <div id="band" class="about-container">
+        <div id="about">
+          <h2>The Band</h2>
+          <p class="slogan">We love music</p>
+          <p class="description">
+            We have created a fictional band website. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.
+          </p>
+          <div class="info-container clearfix">
+            <div class="info-member">
+              <p>Name</p>
+              <img lazy="loading" src="./assets/images/about/bandmember.jpg" alt="" />
             </div>
-        </div>
-        <div class="tour-container">
-            <div id="tour">
-                <h2>Tour Dates</h2>
-                <i>Remember to book your tickets!</i>
-                <div class="info-tour">
-                    <div class="detail">September <span>Sold out</span></div>
-                    <div class="detail">October <span>Sold out</span></div>
-                    <div class="detail">November<span class="date-tour">3</span></div>
-                </div>
-                <div class="buy-ticket clearfix">
-                    <div class="ticket">
-                        <img src="./assets/images/tour/newyork.jpg" alt="newyork">
-                        <p>New York</p>
-                        <p>Fri 27 Nov 2016</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <p><button>Buy Tickets</button></p>
-                    </div>
-                    <div class="ticket">
-                        <img src="./assets/images/tour/paris.jpg" alt="paris">
-                        <p>Paris</p>
-                        <p>Sat 28 Nov 2016</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <p><button>Buy Tickets</button></p>
-                    </div>
-                    <div class="ticket">
-                        <img src="./assets/images/tour/sanfran.jpg" alt="sanfran">
-                        <p>San Francisco</p>
-                        <p>Sun 29 Nov 2016</p>
-                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <p><button>Buy Tickets</button></p>
-                    </div>
-                </div>
+            <div class="info-member">
+              <p>Name</p>
+              <img lazy="loading" src="./assets/images/about/bandmember.jpg" alt="" />
             </div>
-        </div>
-        <div id="contact-container">
-            <div id="contact" class="contact">
-                <h2>Contact</h2>
-                <p>Fan? Drop a note!</p>
-                <div class="form-info clearfix">
-                    <div class="label">
-                        <i class="ti-location-pin icon-label"></i>
-                        Chicago, US
-                        <br />
-                        <i class="ti-headphone-alt icon-label"></i>
-                        Phone: +00 151515
-                        <br />
-                        <i class="ti-email icon-label"></i>
-                        Email: mail@mail.com
-                        <br />
-                    </div>
-                    <div class="form">
-                        <div>
-                            <input type="text" placeholder="Name">
-                            <input type="text" placeholder="Email">
-                        </div>
-                        <input type="text" placeholder="Message">
-                        <input type="submit" value="Send">
-                    </div>
-                </div>
+            <div class="info-member">
+              <p>Name</p>
+              <img lazy="loading" src="./assets/images/about/bandmember.jpg" alt="" />
             </div>
+          </div>
         </div>
+      </div>
+      <div class="tour-container">
+        <div id="tour">
+          <h2>Tour Dates</h2>
+          <i>Remember to book your tickets!</i>
+          <div class="info-tour">
+            <div class="detail">September <span>Sold out</span></div>
+            <div class="detail">October <span>Sold out</span></div>
+            <div class="detail">November<span class="date-tour">3</span></div>
+          </div>
+          <div class="buy-ticket clearfix">
+            <div class="ticket">
+              <img lazy="loading" src="./assets/images/tour/newyork.jpg" alt="newyork" />
+              <p>New York</p>
+              <p>Fri 27 Nov 2016</p>
+              <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+              <p><button>Buy Tickets</button></p>
+            </div>
+            <div class="ticket">
+              <img lazy="loading" src="./assets/images/tour/paris.jpg" alt="paris" />
+              <p>Paris</p>
+              <p>Sat 28 Nov 2016</p>
+              <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+              <p><button>Buy Tickets</button></p>
+            </div>
+            <div class="ticket">
+              <img lazy="loading" src="./assets/images/tour/sanfran.jpg" alt="sanfran" />
+              <p>San Francisco</p>
+              <p>Sun 29 Nov 2016</p>
+              <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+              <p><button>Buy Tickets</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="contact-container">
+        <div id="contact" class="contact">
+          <h2>Contact</h2>
+          <p>Fan? Drop a note!</p>
+          <div class="form-info clearfix">
+            <div class="label">
+              <i class="ti-location-pin icon-label"></i>
+              Chicago, US
+              <br />
+              <i class="ti-headphone-alt icon-label"></i>
+              Phone: +00 151515
+              <br />
+              <i class="ti-email icon-label"></i>
+              Email: mail@mail.com
+              <br />
+            </div>
+            <div class="form">
+              <div>
+                <input type="text" placeholder="Name" />
+                <input type="text" placeholder="Email" />
+              </div>
+              <input type="text" placeholder="Message" />
+              <input type="submit" value="Send" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="banner" class="content-section"></div>
     <div id="footer" class="content-section">
-        <div class="share">
-            <i class="ti-facebook"></i>
-            <i class="ti-instagram"></i>
-            <i class="ti-github"></i>
-            <i class="ti-pinterest"></i>
-            <i class="ti-twitter"></i>
-            <i class="ti-linkedin"></i>
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp">w3.css</a></p>
-        </div>
+      <div class="share">
+        <i class="ti-facebook"></i>
+        <i class="ti-instagram"></i>
+        <i class="ti-github"></i>
+        <i class="ti-pinterest"></i>
+        <i class="ti-twitter"></i>
+        <i class="ti-linkedin"></i>
+        <p>
+          Powered by
+          <a href="https://www.w3schools.com/w3css/default.asp">w3.css</a>
+        </p>
+      </div>
     </div>
 
     <script>
-        let $ = document.querySelector.bind(document);
-        let $$ = document.querySelectorAll.bind(document);
+      let $ = document.querySelector.bind(document);
+      let $$ = document.querySelectorAll.bind(document);
 
-        let slideElement = $('#slider');
-        let slideTitleElement = $('#slider .title h4');
-        let slideParaElement = $('#slider .title .about');
+      let slideElement = $("#slider");
+      let slideTitleElement = $("#slider .title h4");
+      let slideParaElement = $("#slider .title .about");
 
-        setInterval(() => {
-            slideElement.style.backgroundImage = 'url("./assets/images/slider/la.jpg")';
-            slideTitleElement.innerText = 'Los Angeles';
-            slideParaElement.innerText = 'We had the best time playing at Venice Beach!';
-        }, 5000);
+      setInterval(() => {
+        slideElement.style.backgroundImage =
+          'url("./assets/images/slider/la.jpg")';
+        slideTitleElement.innerText = "Los Angeles";
+        slideParaElement.innerText =
+          "We had the best time playing at Venice Beach!";
+      }, 5000);
 
-        setInterval(() => {
-            slideElement.style.backgroundImage = 'url("./assets/images/slider/ny.jpg")';
-            slideTitleElement.innerText = 'New York';
-            slideParaElement.innerText = 'The atmosphere in New York is lorem ipsum.';
-        }, 10000);
+      setInterval(() => {
+        slideElement.style.backgroundImage =
+          'url("./assets/images/slider/ny.jpg")';
+        slideTitleElement.innerText = "New York";
+        slideParaElement.innerText =
+          "The atmosphere in New York is lorem ipsum.";
+      }, 10000);
 
-        setInterval(() => {
-            slideElement.style.backgroundImage = 'url("./assets/images/slider/chicago.jpg")';
-            slideTitleElement.innerText = 'Chicago';
-            slideParaElement.innerText = 'Thank you, Chicago - A night we won\'t forget.';
-        }, 15000);
+      setInterval(() => {
+        slideElement.style.backgroundImage =
+          'url("./assets/images/slider/chicago.jpg")';
+        slideTitleElement.innerText = "Chicago";
+        slideParaElement.innerText =
+          "Thank you, Chicago - A night we won't forget.";
+      }, 15000);
 
-        function showNav() {
-            let headerElement = document.querySelector('#header');
+      function showNav() {
+        let headerElement = document.querySelector("#header");
 
-            headerElement.classList.toggle('nav-hidden');
-        }
+        headerElement.classList.toggle("nav-hidden");
+      }
     </script>
-</body>
-
+  </body>
 </html>
