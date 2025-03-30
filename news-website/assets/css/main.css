@@ -1,9 +1,20 @@
+/* Sliders area */
+.sliders-area {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.slider {
+  width: 100%;
+}
+
+/* Main content */
 .main-content {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .item img {
-    border-radius: 5px;
+  border-radius: 5px;
 }
