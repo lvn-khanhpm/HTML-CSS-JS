@@ -1,4 +1,8 @@
 // Sliders
+let index = -1;
+
+showSlider();
+
 function hideAllSlider() {
   let sliders = document.querySelectorAll(".slider");
   let sliderCount = sliders.length;
@@ -8,16 +12,24 @@ function hideAllSlider() {
   }
 }
 
-function showSlider(index) {
-  let slider = document.querySelectorAll(".slider")[index];
+function showSlider() {
+  hideAllSlider();
+
+  index++;
+
+  let sliders = document.querySelectorAll(".slider");
+
+  if (index == sliders.length) {
+    index = 0;
+  }
+
+  let slider = sliders[index];
 
   if (slider) {
     slider.style.display = "block";
   } else {
     console.log("Slider not found");
   }
+
+  setTimeout(showSlider, 2000);
 }
-
-hideAllSlider();
-
-showSlider(0);
