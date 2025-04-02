@@ -1,7 +1,7 @@
 // Sliders
 let index = -1;
 
-showSlider();
+showSliderAuto();
 
 function hideAllSlider() {
   let sliders = document.querySelectorAll(".slider");
@@ -10,6 +10,11 @@ function hideAllSlider() {
   for (let i = 0; i < sliderCount; i++) {
     sliders[i].style.display = "none";
   }
+}
+
+function showSliderAuto() {
+  showSlider();
+  setTimeout(showSliderAuto, 5000);
 }
 
 function showSlider() {
@@ -30,6 +35,4 @@ function showSlider() {
   } else {
     console.log("Slider not found");
   }
-
-  setTimeout(showSlider, 2000);
 }

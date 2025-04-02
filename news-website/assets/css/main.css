@@ -2,10 +2,37 @@
 .sliders-area {
   max-width: 1000px;
   margin: auto;
+  position: relative;
 }
 
 .slider {
   width: 100%;
+}
+
+.prev, .next {
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.6s;
+}
+
+.prev:hover, .next:hover {
+  cursor: pointer;
+  background-color: #000;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
 
 /* Main content */
